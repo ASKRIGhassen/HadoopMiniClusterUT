@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>minicluster.local</groupId>
+    <artifactId>SparkUnitTesting</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+<dependencies>
+    <dependency>
+        <groupId>com.github.sakserv</groupId>
+        <artifactId>hadoop-mini-clusters</artifactId>
+        <version>0.1.16</version>
+    </dependency>
+
+    <dependency>
+        <groupId>com.github.sakserv</groupId>
+        <artifactId>hadoop-mini-clusters-common</artifactId>
+        <version>0.1.16</version>
+    </dependency>
+    <!-- hdfs dependency -->
+    <dependency>
+        <groupId>com.github.sakserv</groupId>
+        <artifactId>hadoop-mini-clusters-hdfs</artifactId>
+        <version>0.1.16</version>
+    </dependency>
+    <!-- YARN -->
+    <dependency>
+        <groupId>com.github.sakserv</groupId>
+        <artifactId>hadoop-mini-clusters-yarn</artifactId>
+        <version>0.1.16</version>
+    </dependency>
+
+    <!-- MapReduce -->
+    <dependency>
+        <groupId>com.github.sakserv</groupId>
+        <artifactId>hadoop-mini-clusters-mapreduce</artifactId>
+        <version>0.1.16</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-core -->
+    <dependency>
+        <groupId>org.apache.spark</groupId>
+        <artifactId>spark-core_2.12</artifactId>
+        <version>3.0.0</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.spark/spark-sql -->
+    <dependency>
+        <groupId>org.apache.spark</groupId>
+        <artifactId>spark-sql_2.12</artifactId>
+        <version>3.0.0</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/log4j/log4j -->
+    <dependency>
+        <groupId>log4j</groupId>
+        <artifactId>log4j</artifactId>
+        <version>1.2.17</version>
+    </dependency>
+
+
+</dependencies>
+</project>
