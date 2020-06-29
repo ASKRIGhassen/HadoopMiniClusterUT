@@ -1,7 +1,6 @@
 package com.hadoop.minicluster.api;
 
 import com.github.sakserv.minicluster.impl.HdfsLocalCluster;
-import com.github.sakserv.minicluster.impl.MRLocalCluster;
 import com.hadoop.minicluster.common.PropertiesUtils;
 import com.hadoop.minicluster.common.SparkWrapper;
 import com.hadoop.minicluster.common.WindowsLibUtils;
