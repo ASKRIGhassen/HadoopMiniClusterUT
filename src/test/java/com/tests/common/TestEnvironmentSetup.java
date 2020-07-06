@@ -23,7 +23,7 @@ public class TestEnvironmentSetup extends HadoopMiniClusterSetup {
 
     @BeforeClass
     public static void setup() throws Exception {
-        setHadoopHome();
+        setHadoopProperties();
         Properties properties = PropertiesUtils.readPropertiesFile("default.properties");
         hdfsLocalCluster = new HdfsLocalCluster.Builder()
                 .setHdfsNamenodePort(Integer.parseInt(properties.getProperty(PropertiesUtils.HDFS_NAMENODE_PORT)))
@@ -51,12 +51,12 @@ public class TestEnvironmentSetup extends HadoopMiniClusterSetup {
 
         StructType schema = new StructType(columns);
         List<Row> data = new ArrayList<Row>();
-        data.add(RowFactory.create("Layene","ASKRI",1));
-        data.add(RowFactory.create("Ghassen","ASKRI",30));
+        data.add(RowFactory.create("Layene", "ASKRI", 1));
+        data.add(RowFactory.create("Ghassen", "ASKRI", 30));
 
-        Dataset<Row> df = spark.createDataFrame(data,schema);
+        Dataset<Row> df = spark.createDataFrame(data, schema);
         df.show();
-        assert(df.count()== 2);
+        assert (df.count() == 2);
     }
 
     @After

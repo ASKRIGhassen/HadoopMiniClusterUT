@@ -12,18 +12,18 @@ public class HadoopMiniClusterSetup {
     public static Logger LOG = LoggerFactory.getLogger(HadoopMiniClusterSetup.class);
 
 
-    public static void setHadoopHome() {
+    public static void setHadoopProperties() {
 
+
+        String hadoopHome = getHadoopHome();
+        LOG.info("WINDOWS: Setting hadoop.home.dir: {}", hadoopHome);
+        System.setProperty("hadoop.home.dir", hadoopHome);
+        System.setProperty("HADOOP_HOME", hadoopHome);
         // Set hadoop.home.dir to point to the windows lib dir
         if (System.getProperty("os.name").startsWith("Windows")) {
-
-            String windowsLibDir = getHadoopHome();
-            LOG.info("WINDOWS: Setting hadoop.home.dir: {}", windowsLibDir);
-            System.setProperty("hadoop.home.dir", windowsLibDir);
-            System.setProperty("HADOOP_HOME", windowsLibDir);
-            System.load(new File(windowsLibDir + Path.SEPARATOR + "bin" + Path.SEPARATOR + "winutils.exe").getAbsolutePath());
-            System.load(new File(windowsLibDir + Path.SEPARATOR + "lib" + Path.SEPARATOR + "hadoop.dll").getAbsolutePath());
-            System.load(new File(windowsLibDir + Path.SEPARATOR + "lib" + Path.SEPARATOR + "hdfs.dll").getAbsolutePath());
+            System.load(new File(hadoopHome + Path.SEPARATOR + "bin" + Path.SEPARATOR + "winutils.exe").getAbsolutePath());
+            System.load(new File(hadoopHome + Path.SEPARATOR + "lib" + Path.SEPARATOR + "hadoop.dll").getAbsolutePath());
+            System.load(new File(hadoopHome + Path.SEPARATOR + "lib" + Path.SEPARATOR + "hdfs.dll").getAbsolutePath());
 
         }
     }
@@ -38,14 +38,14 @@ public class HadoopMiniClusterSetup {
             return System.getenv("HADOOP_HOME");
         } else {
 
-            File windowsLibDir = new File("." + Path.SEPARATOR + "src/main/resources");
-            if (!windowsLibDir.exists()) {
-                windowsLibDir = new File(".." + Path.SEPARATOR + windowsLibDir);
-                if (!windowsLibDir.exists()) {
+            File hadoopHomeDir = new File("." + Path.SEPARATOR + "src/main/resources");
+            if (!hadoopHomeDir.exists()) {
+                hadoopHomeDir = new File(".." + Path.SEPARATOR + hadoopHomeDir);
+                if (!hadoopHomeDir.exists()) {
                     LOG.error("WINDOWS: ERROR: Could not find windows native libs");
                 }
             }
-            return windowsLibDir.getAbsolutePath();
+            return hadoopHomeDir.getAbsolutePath();
         }
     }
 }
